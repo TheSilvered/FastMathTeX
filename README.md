@@ -22,6 +22,8 @@ You are given a prompt where you can input a custom syntax, after you are done
 press `[Enter]` and the TeX output will be shown. Additionally it is copied to
 your clipboard with a dollar sign before and after.
 
+To exit write `exit` in the prompt.
+
 ### FastMath syntax
 
 In FastMathTeX all words longer than one character are treated as commands, no
@@ -55,3 +57,17 @@ There are shortcuts for many commands:
 | `gm`     | `\gamma`        |                      |
 | `dl`     | `\delta`        |                      |
 | `DL`     | `\delta`        |                      |
+
+### Example
+
+```text
+> "Let" \; RR^n = lc (a_1, a_2, ddd, a_n) | a_i in RR, i = 1, 2, ddd, n rc
+\text{Let} \; \mathbb R^n = \left\{ (a_1, a_2, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\}
+>
+```
+
+Rendered output:
+
+$$
+\text{Let} \; \mathbb R^n = \left\{ (a_1, a_2, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\}
+$$
