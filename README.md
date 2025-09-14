@@ -1,6 +1,6 @@
 # FastMathTeX
 
-A quicker way to input math equations with TeX syntax.
+A quicker way to input math equations with LaTeX syntax.
 
 ## Running
 
@@ -19,10 +19,10 @@ python3 src/main.py
 ## How to use
 
 You are given a prompt where you can input a custom syntax, after you are done
-press `[Enter]` and the TeX output will be shown. Additionally it is copied to
+press `[Enter]` and the LaTeX output will be shown. Additionally it is copied to
 your clipboard with a dollar sign before and after.
 
-To exit write `exit` in the prompt.
+To exit write `'exit` in the prompt.
 
 ### FastMath syntax
 
