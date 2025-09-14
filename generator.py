@@ -12,12 +12,12 @@ class Generator:
         "ddd": "ldots",  # dot dot dot
         "balign": "begin{align}",
         "ealign": "end{align}",
-        "op": "left(",  # open paren
-        "cp": "right)",  # close paren
-        "os": "left[",  # open square bracket
-        "cs": "right]",  # close square bracket
-        "oc": "left\\{",  # open curly bracket
-        "cc": "right\\}",  # close curly bracket
+        "lp": "left(",  # left paren
+        "rp": "right)",  # right paren
+        "ls": "left[",  # left square bracket
+        "rs": "right]",  # right square bracket
+        "lc": "left\\{",  # left curly bracket
+        "rc": "right\\}",  # right curly bracket
         "ob": "left|",  # open beam
         "cb": "right|",  # close beam
         "al": "alpha",
