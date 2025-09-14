@@ -69,5 +69,5 @@ There are shortcuts for many commands:
 Rendered output:
 
 $$
-\text{Let} \; \mathbb R^n = \left\\{ (a_1, a_2, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\\}
+\text{Let} \\; \mathbb R^n = \left\\{ (a_1, a_2, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\\}
 $$
