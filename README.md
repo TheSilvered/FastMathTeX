@@ -6,13 +6,13 @@ A quicker way to input math equations with TeX syntax.
 
 Ensure that you have `pyperclip` installed with:
 
-```
+```shell
 python3 -m pip install pyperclip
 ```
 
 then simply run:
 
-```
+```shell
 python3 main.py
 ```
 
@@ -31,28 +31,27 @@ Additionally any text inside double quotes is placed inside a `\text{}` block.
 
 There are shortcuts for many commands:
 
-| FastMath | TeX | Mnemonic |
-| -------- | --- | -------- |
-| `NN` | `\mathbb N` | |
-| `ZZ` | `\mathbb Z` | |
-| `QQ` | `\mathbb Q` | |
-| `II` | `\mathbb I` | |
-| `RR` | `\mathbb R` | |
-| `CC` | `\mathbb C` | |
-| `ddd` | `\ldots` | | Dot, dot, dot |
-| `balign` | `\begin{align}` | |
-| `ealign` | `\end{align}` | |
-| `lp` | `\left(` | Left paren |
-| `rp` | `\right)` | Right paren |
-| `ls` | `\left[` | Left square bracket |
-| `rs` | `\right]` | Right square bracket |
-| `lc` | `\left{` | Left curly bracket |
-| `rc` | `\right}` | Right curly bracket |
-| `lb` | `\left|` | Left beam |
-| `rb` | `\right|` | Right beam |
-| `al` | `\alpha` | |
-| `bt` | `\beta` | |
-| `gm` | `\gamma` | |
-| `dl` | `\delta` | |
-| `DL` | `\delta` | |
-
+| FastMath | TeX             | Mnemonic             |
+| -------- | --------------- | -------------------- |
+| `NN`     | `\mathbb N`     |                      |
+| `ZZ`     | `\mathbb Z`     |                      |
+| `QQ`     | `\mathbb Q`     |                      |
+| `II`     | `\mathbb I`     |                      |
+| `RR`     | `\mathbb R`     |                      |
+| `CC`     | `\mathbb C`     |                      |
+| `ddd`    | `\ldots`        | Dot, dot, dot        |
+| `balign` | `\begin{align}` |                      |
+| `ealign` | `\end{align}`   |                      |
+| `lp`     | `\left(`        | Left paren           |
+| `rp`     | `\right)`       | Right paren          |
+| `ls`     | `\left[`        | Left square bracket  |
+| `rs`     | `\right]`       | Right square bracket |
+| `lc`     | `\left{`        | Left curly bracket   |
+| `rc`     | `\right}`       | Right curly bracket  |
+| `lb`     | `\left\|`       | Left beam            |
+| `rb`     | `\right\|`      | Right beam           |
+| `al`     | `\alpha`        |                      |
+| `bt`     | `\beta`         |                      |
+| `gm`     | `\gamma`        |                      |
+| `dl`     | `\delta`        |                      |
+| `DL`     | `\delta`        |                      |
