@@ -1,6 +1,5 @@
-from lexer import Lexer
-from generator import Generator
-import pyperclip as clip
+from fastmath import Lexer, Generator
+import pyperclip
 import readline
 
 
@@ -12,5 +11,5 @@ if __name__ == "__main__":
         lexer = Lexer(line)
         generator = Generator(lexer.tokenize())
         output = generator.generate()
-        print(generator.generate())
-        clip.copy("$" + output + "$")
+        print(output)
+        pyperclip.copy("$" + output + "$")

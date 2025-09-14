@@ -13,7 +13,7 @@ python3 -m pip install pyperclip
 then simply run:
 
 ```shell
-python3 main.py
+python3 src/main.py
 ```
 
 ## How to use
@@ -29,7 +29,9 @@ To exit write `exit` in the prompt.
 In FastMathTeX all words longer than one character are treated as commands, no
 checking is done to determine wether they are valid command.
 
-Additionally any text inside double quotes is placed inside a `\text{}` block.
+Any text inside double quotes is placed inside a `\text{}` block.
+
+A number that immediately follows a letter becomes a subscript.
 
 There are shortcuts for many commands:
 
@@ -56,13 +58,13 @@ There are shortcuts for many commands:
 | `bt`     | `\beta`         |                      |
 | `gm`     | `\gamma`        |                      |
 | `dl`     | `\delta`        |                      |
-| `DL`     | `\delta`        |                      |
+| `DL`     | `\Delta`        |                      |
 
 ### Example
 
 ```text
-> "Let" \; RR^n = lc (a_1, a_2, ddd, a_n) | a_i in RR, i = 1, 2, ddd, n rc
-\text{Let} \; \mathbb R^n = \left\{ (a_1, a_2, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\}
+> "Let" \; RR^n = lc (a1, a2, ddd, a_n) | a_i in RR, i = 1, 2, ddd, n rc
+\text{Let} \; \mathbb R^n = \left\{ ({a_1}, {a_2}, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\}
 >
 ```
 

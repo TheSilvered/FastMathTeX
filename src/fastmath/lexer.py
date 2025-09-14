@@ -1,10 +1,12 @@
 from enum import Enum, auto
 from typing import Callable
 
+
 class TokenKind(Enum):
     TEXT = auto()
     SPACE = auto()
     ALPHA = auto()
+    NUM = auto()
     OTHER = auto()
 
 
@@ -50,7 +52,7 @@ class Lexer:
             elif ch.isalpha():
                 tokens.append(self.aggregate(TokenKind.ALPHA, str.isalpha))
             elif ch.isdigit():
-                tokens.append(self.aggregate(TokenKind.OTHER, str.isdigit))
+                tokens.append(self.aggregate(TokenKind.NUM, str.isdigit))
             elif ch == '"':
                 tokens.append(self.raw_text())
             else:
