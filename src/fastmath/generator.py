@@ -25,8 +25,8 @@ class Generator:
         "gm": "\\gamma",
         "dl": "\\delta",
         "DL": "\\Delta",
-        "LL": "{",
-        "RR": "}"
+        "JJ": "{",
+        "LL": "}"
     }
 
     def __init__(self, tokens: list[Token]):
