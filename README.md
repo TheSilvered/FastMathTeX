@@ -13,8 +13,11 @@ python3 -m pip install pyperclip
 then simply run:
 
 ```shell
-python3 src/main.py
+python3 src/fmtex.py
 ```
+
+Optionally you can add executable rights to the file and add the `./src/`
+directory to your `PATH` (only for UNIX based systems).
 
 ## How to use
 
