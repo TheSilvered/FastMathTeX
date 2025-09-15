@@ -4,10 +4,9 @@ from typing import Callable
 
 class TokenKind(Enum):
     TEXT = auto()
+    RAW = auto()
     SPACE = auto()
     ALPHA = auto()
-    NUM = auto()
-    OTHER = auto()
 
 
 class Token:
@@ -52,11 +51,13 @@ class Lexer:
             elif ch.isalpha():
                 tokens.append(self.aggregate(TokenKind.ALPHA, str.isalpha))
             elif ch.isdigit():
-                tokens.append(self.aggregate(TokenKind.NUM, str.isdigit))
+                tokens.append(self.aggregate(TokenKind.RAW, str.isdigit))
             elif ch == '"':
-                tokens.append(self.raw_text())
+                tokens.append(self.enclosed_string(TokenKind.TEXT))
+            elif ch == "%":
+                tokens.append(self.enclosed_string(TokenKind.RAW))
             else:
-                tokens.append(Token(TokenKind.OTHER, ch))
+                tokens.append(Token(TokenKind.RAW, ch))
 
         return tokens
 
@@ -68,18 +69,20 @@ class Lexer:
 
         return Token(kind, val)
 
-    def raw_text(self) -> Token:
+    def enclosed_string(self, kind: TokenKind) -> Token:
         val = ""
+        terminator = self.ch
         escape = False
         while ch := self.next():
             if ch == '\\':
                 escape = True
                 continue
-            if escape or ch != '"':
+            if escape or ch != terminator:
                 val += ch
+                escape = False
             else:
                 break
-        return Token(TokenKind.TEXT, val)
+        return Token(kind, val)
 
 
 if __name__ == "__main__":

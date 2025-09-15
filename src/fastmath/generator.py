@@ -12,6 +12,8 @@ class Generator:
         "ddd": "\\ldots",  # dot dot dot
         "balign": "\\begin{align}",
         "ealign": "\\end{align}",
+        "bcases": "\\begin{cases}",
+        "ecases": "\\end{cases}",
         "lp": "\\left(",  # left paren
         "rp": "\\right)",  # right paren
         "ls": "\\left[",  # left square bracket
@@ -26,7 +28,8 @@ class Generator:
         "dl": "\\delta",
         "DL": "\\Delta",
         "JJ": "{",
-        "LL": "}"
+        "LL": "}",
+        "impl": "implies"
     }
 
     def __init__(self, tokens: list[Token]):
@@ -54,12 +57,10 @@ class Generator:
                 s += " "
             elif self.tok.kind == TokenKind.TEXT:
                 s += self.generate_text()
-            elif self.tok.kind == TokenKind.NUM:
+            elif self.tok.kind == TokenKind.RAW:
                 s += self.tok.val
             elif self.tok.kind == TokenKind.ALPHA:
                 s += self.generate_alpha()
-            elif self.tok.kind == TokenKind.OTHER:
-                s += self.tok.val
             else:
                 raise RuntimeError(f"unhandled token kind {self.tok.kind.name}")
             self.next()
