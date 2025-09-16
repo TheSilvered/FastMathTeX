@@ -57,9 +57,9 @@ class Lexer:
             elif ch.isdigit():
                 tokens.append(self.aggregate(TokenKind.NUM, str.isdigit))
             elif ch == '"':
-                tokens.append(self.enclosed_string(TokenKind.TEXT))
+                tokens.append(self.enclosed_string(TokenKind.TEXT, True))
             elif ch == "%":
-                tokens.append(self.enclosed_string(TokenKind.RAW))
+                tokens.append(self.enclosed_string(TokenKind.RAW, False))
             else:
                 tokens.append(Token(TokenKind.RAW, ch))
 
@@ -73,12 +73,12 @@ class Lexer:
 
         return Token(kind, val)
 
-    def enclosed_string(self, kind: TokenKind) -> Token:
+    def enclosed_string(self, kind: TokenKind, allow_escape: bool) -> Token:
         val = ""
         terminator = self.ch
         escape = False
         while ch := self.next():
-            if ch == '\\':
+            if ch == '\\' and allow_escape:
                 escape = True
                 continue
             if escape or ch != terminator:

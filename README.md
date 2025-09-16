@@ -33,7 +33,7 @@ In FastMathTeX all words longer than one character are treated as commands, no
 checking is done to determine wether they are valid command.
 
 Any text inside double quotes is placed inside a `\text{}` block.
-`"hello"` becomes `\text{hello}` and `"Dwayne \"The Rock\" Johnson" becomes
+`"hello"` becomes `\text{hello}` and `"Dwayne \"The Rock\" Johnson"` becomes
 `\text{Dwayne "The Rock" Johnson}`.
 
 Any text inside percent signs is treated as raw LaTeX and is left unchanged.
