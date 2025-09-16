@@ -5,8 +5,10 @@ from typing import Callable
 class TokenKind(Enum):
     TEXT = auto()
     RAW = auto()
-    SPACE = auto()
     ALPHA = auto()
+    NUM = auto()
+    SPACE = auto()
+    LINE = auto()
 
 
 class Token:
@@ -46,12 +48,14 @@ class Lexer:
         tokens: list[Token] = []
 
         while ch := self.next():
-            if ch.isspace():
+            if ch == '\n':
+                tokens.append(Token(TokenKind.LINE, ch))
+            elif ch.isspace():
                 tokens.append(self.aggregate(TokenKind.SPACE, str.isspace))
             elif ch.isalpha():
                 tokens.append(self.aggregate(TokenKind.ALPHA, str.isalpha))
             elif ch.isdigit():
-                tokens.append(self.aggregate(TokenKind.RAW, str.isdigit))
+                tokens.append(self.aggregate(TokenKind.NUM, str.isdigit))
             elif ch == '"':
                 tokens.append(self.enclosed_string(TokenKind.TEXT))
             elif ch == "%":
@@ -86,7 +90,7 @@ class Lexer:
 
 
 if __name__ == "__main__":
-    tok = Token(TokenKind.OTHER, "test")
+    tok = Token(TokenKind.RAW, "test")
     print(tok)
     print([tok, tok])
     text = 'forall a_1, a_2, ddd a_n in V "such that" sum_{i=1}^n a_i = 100'

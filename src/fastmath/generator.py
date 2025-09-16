@@ -3,12 +3,12 @@ from .lexer import Token, TokenKind
 
 class Generator:
     CMD_SUBSTITUTIONS: dict[str, str] = {
-        "NN": "\\mathbb N",
-        "ZZ": "\\mathbb Z",
-        "QQ": "\\mathbb Q",
-        "II": "\\mathbb I",
-        "RR": "\\mathbb R",
-        "CC": "\\mathbb C",
+        "NN": "{\\mathbb N}",
+        "ZZ": "{\\mathbb Z}",
+        "QQ": "{\\mathbb Q}",
+        "II": "{\\mathbb I}",
+        "RR": "{\\mathbb R}",
+        "CC": "{\\mathbb C}",
         "ddd": "\\ldots",  # dot dot dot
         "balign": "\\begin{align}",
         "ealign": "\\end{align}",
@@ -29,7 +29,7 @@ class Generator:
         "DL": "\\Delta",
         "JJ": "{",
         "LL": "}",
-        "impl": "implies"
+        "impl": "\\implies"
     }
 
     def __init__(self, tokens: list[Token]):
@@ -61,6 +61,8 @@ class Generator:
                 s += self.tok.val
             elif self.tok.kind == TokenKind.ALPHA:
                 s += self.generate_alpha()
+            elif self.tok.kind == TokenKind.LINE:
+                s += "\n"
             else:
                 raise RuntimeError(f"unhandled token kind {self.tok.kind.name}")
             self.next()
