@@ -43,43 +43,43 @@ A number that immediately follows a letter becomes a subscript.
 
 There are shortcuts for many commands:
 
-| FastMath   | TeX               | Mnemonic                    |
-| ---------- | ----------------- | --------------------------- |
-| `NN`       | `\mathbb N`       |                             |
-| `ZZ`       | `\mathbb Z`       |                             |
-| `QQ`       | `\mathbb Q`       |                             |
-| `II`       | `\mathbb I`       |                             |
-| `RR`       | `\mathbb R`       |                             |
-| `CC`       | `\mathbb C`       |                             |
-| `ddd`      | `\ldots`          | Dot, dot, dot               |
-| `balign`   | `\begin{align}`   |                             |
-| `ealign`   | `\end{align}`     |                             |
-| `bcases`   | `\begin{cases}`   |                             |
-| `ecases`   | `\end{cases}`     |                             |
-| `bmatrix`  | `\begin{matrix}`  |                             |
-| `ematrix`  | `\end{matrix}`    |                             |
-| `bsmatrix` | `\begin{bmatrix}` | Begin square-bracket matrix |
-| `esmatrix` | `\end{bmatrix}`   | End square-bracked matrix   |
-| `bcmatrix` | `\begin{Bmatrix}` | Begin curly-bracket matrix  |
-| `ecmatrix` | `\end{Bmatrix}`   | End curly-bracket matrix    |
-| `bbmatrix` | `\begin{vmatrix}` | Begin beam matrix           |
-| `ebmatrix` | `\end{vmatrix}`   | End beam matrix             |
-| `bdmatrix` | `\begin{Vmatrix}` | Begin double beam matrix    |
-| `edmatrix` | `\end{Vmatrix}`   | End double beam matrix      |
-| `lp`       | `\left(`          | Left paren                  |
-| `rp`       | `\right)`         | Right paren                 |
-| `ls`       | `\left[`          | Left square bracket         |
-| `rs`       | `\right]`         | Right square bracket        |
-| `lc`       | `\left{`          | Left curly bracket          |
-| `rc`       | `\right}`         | Right curly bracket         |
-| `lb`       | `\left\|`         | Left beam                   |
-| `rb`       | `\right\|`        | Right beam                  |
-| `al`       | `\alpha`          |                             |
-| `bt`       | `\beta`           |                             |
-| `gm`       | `\gamma`          |                             |
-| `dl`       | `\delta`          |                             |
-| `DL`       | `\Delta`          |                             |
-| `impl`     | `\implies`        |                             |
+| FastMath | TeX               | Mnemonic                    |
+| -------- | ----------------- | --------------------------- |
+| `NN`     | `\mathbb N`       |                             |
+| `ZZ`     | `\mathbb Z`       |                             |
+| `QQ`     | `\mathbb Q`       |                             |
+| `II`     | `\mathbb I`       |                             |
+| `RR`     | `\mathbb R`       |                             |
+| `CC`     | `\mathbb C`       |                             |
+| `ddd`    | `\ldots`          | Dot, dot, dot               |
+| `balign` | `\begin{align}`   |                             |
+| `ealign` | `\end{align}`     |                             |
+| `bcases` | `\begin{cases}`   |                             |
+| `ecases` | `\end{cases}`     |                             |
+| `bmat`   | `\begin{matrix}`  |                             |
+| `emat`   | `\end{matrix}`    |                             |
+| `bsmat`  | `\begin{bmatrix}` | Begin square-bracket matrix |
+| `esmat`  | `\end{bmatrix}`   | End square-bracked matrix   |
+| `bcmat`  | `\begin{Bmatrix}` | Begin curly-bracket matrix  |
+| `ecmat`  | `\end{Bmatrix}`   | End curly-bracket matrix    |
+| `bbmat`  | `\begin{vmatrix}` | Begin beam matrix           |
+| `ebmat`  | `\end{vmatrix}`   | End beam matrix             |
+| `bdmat`  | `\begin{Vmatrix}` | Begin double beam matrix    |
+| `edmat`  | `\end{Vmatrix}`   | End double beam matrix      |
+| `lp`     | `\left(`          | Left paren                  |
+| `rp`     | `\right)`         | Right paren                 |
+| `ls`     | `\left[`          | Left square bracket         |
+| `rs`     | `\right]`         | Right square bracket        |
+| `lc`     | `\left{`          | Left curly bracket          |
+| `rc`     | `\right}`         | Right curly bracket         |
+| `lb`     | `\left\|`         | Left beam                   |
+| `rb`     | `\right\|`        | Right beam                  |
+| `al`     | `\alpha`          |                             |
+| `bt`     | `\beta`           |                             |
+| `gm`     | `\gamma`          |                             |
+| `dl`     | `\delta`          |                             |
+| `DL`     | `\Delta`          |                             |
+| `impl`   | `\implies`        |                             |
 
 ### Example
 

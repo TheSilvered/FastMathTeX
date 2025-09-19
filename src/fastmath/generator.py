@@ -14,18 +14,18 @@ class Generator:
         "ealign": "\\end{align}",
         "bcases": "\\begin{cases}",
         "ecases": "\\end{cases}",
-        "bmatrix": "\\begin{matrix}",
-        "ematrix": "\\end{matrix}",
-        "bpmatrix": "\\begin{pmatrix}",
-        "epmatrix": "\\end{pmatrix}",
-        "bsmatrix": "\\begin{bmatrix}",  # begin square-bracket matrix
-        "esmatrix": "\\end{bmatrix}",  # end square-bracked matrix
-        "bcmatrix": "\\begin{Bmatrix}",  # begin curly-bracket matrix
-        "ecmatrix": "\\end{Bmatrix}",  # end curly-bracket matrix
-        "bbmatrix": "\\begin{vmatrix}",  # begin beam matrix
-        "ebmatrix": "\\end{vmatrix}",  # end beam matrix
-        "bdmatrix": "\\begin{Vmatrix}",  # begin double beam matrix
-        "edmatrix": "\\end{Vmatrix}",  # end double beam matrix
+        "bmat": "\\begin{matrix}",
+        "emat": "\\end{matrix}",
+        "bpmat": "\\begin{pmatrix}",
+        "epmat": "\\end{pmatrix}",
+        "bsmat": "\\begin{bmatrix}",  # begin square-bracket matrix
+        "esmat": "\\end{bmatrix}",  # end square-bracked matrix
+        "bcmat": "\\begin{Bmatrix}",  # begin curly-bracket matrix
+        "ecmat": "\\end{Bmatrix}",  # end curly-bracket matrix
+        "bbmat": "\\begin{vmatrix}",  # begin beam matrix
+        "ebmat": "\\end{vmatrix}",  # end beam matrix
+        "bdmat": "\\begin{Vmatrix}",  # begin double beam matrix
+        "edmat": "\\end{Vmatrix}",  # end double beam matrix
         "lp": "\\left(",  # left paren
         "rp": "\\right)",  # right paren
         "ls": "\\left[",  # left square bracket
