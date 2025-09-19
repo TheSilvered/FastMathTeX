@@ -56,6 +56,14 @@ There are shortcuts for many commands:
 | `ealign` | `\end{align}`   |                      |
 | `bcases` | `\begin{cases}` |                      |
 | `ecases` | `\end{cases}`   |                      |
+| `bsmatrix` | `\begin{bmatrix}`  | Begin square-bracket matrix |
+| `esmatrix` | `\end{bmatrix}`  | End square-bracked matrix |
+| `bcmatrix` | `\begin{Bmatrix}`  | Begin curly-bracket matrix |
+| `ecmatrix` | `\end{Bmatrix}`  | End curly-bracket matrix |
+| `bbmatrix` | `\begin{vmatrix}`  | Begin beam matrix |
+| `ebmatrix` | `\end{vmatrix}`  | End beam matrix |
+| `bdmatrix` | `\begin{Vmatrix}`  | Begin double beam matrix |
+| `edmatrix` | `\end{Vmatrix}`  | End double beam matrix |
 | `lp`     | `\left(`        | Left paren           |
 | `rp`     | `\right)`       | Right paren          |
 | `ls`     | `\left[`        | Left square bracket  |
@@ -70,6 +78,7 @@ There are shortcuts for many commands:
 | `dl`     | `\delta`        |                      |
 | `DL`     | `\Delta`        |                      |
 | `impl`   | `\implies`      |                      |
+
 ### Example
 
 ```text
