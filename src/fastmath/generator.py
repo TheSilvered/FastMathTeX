@@ -75,6 +75,8 @@ class Generator:
                 s += self.generate_alpha()
             elif self.tok.kind == TokenKind.LINE:
                 s += "\n"
+            elif self.tok.kind == TokenKind.NUM:
+                s += self.tok.val
             else:
                 raise RuntimeError(f"unhandled token kind {self.tok.kind.name}")
             self.next()
