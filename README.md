@@ -19,6 +19,11 @@ python3 src/fmtex.py
 Optionally you can add executable rights to the file and add the `./src/`
 directory to your `PATH` (only for UNIX based systems).
 
+> [!IMPORTANT]
+> If when switching to multiline mode you don't see a prompt such as `| 10>`
+> try installing `gnureadline`. Whithout it line numbers will still work but
+> they have to be typed manually to edit a line.
+
 ## How to use
 
 You are given a prompt where you can input a custom syntax, after you are done
