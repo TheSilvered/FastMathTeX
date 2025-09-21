@@ -87,12 +87,3 @@ class Lexer:
             else:
                 break
         return Token(kind, val)
-
-
-if __name__ == "__main__":
-    tok = Token(TokenKind.RAW, "test")
-    print(tok)
-    print([tok, tok])
-    text = 'forall a_1, a_2, ddd a_n in V "such that" sum_{i=1}^n a_i = 100'
-    lex = Lexer(text)
-    print(*lex.tokenize(), sep='\n')

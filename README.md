@@ -2,28 +2,6 @@
 
 A quicker way to input math equations with LaTeX syntax.
 
-## Running
-
-Ensure that you have `pyperclip` installed with:
-
-```shell
-python3 -m pip install pyperclip
-```
-
-then simply run:
-
-```shell
-python3 src/fmtex.py
-```
-
-Optionally you can add executable rights to the file and add the `./src/`
-directory to your `PATH` (only for UNIX based systems).
-
-> [!IMPORTANT]
-> If when switching to multiline mode you don't see a prompt such as `| 10>`
-> try installing `gnureadline`. Whithout it line numbers will still work but
-> they have to be typed manually to edit a line.
-
 ## How to use
 
 You are given a prompt where you can input a custom syntax, after you are done
@@ -35,16 +13,38 @@ To exit write `'exit` in the prompt.
 ### FastMath syntax
 
 In FastMathTeX all words longer than one character are treated as commands, no
-checking is done to determine wether they are valid command.
+checking is done to determine wether they are valid commands.
+
+```text
+> hello world a b c
+\hello \world a b c
+```
 
 Any text inside double quotes is placed inside a `\text{}` block.
-`"hello"` becomes `\text{hello}` and `"Dwayne \"The Rock\" Johnson"` becomes
-`\text{Dwayne "The Rock" Johnson}`.
+
+```
+> "such that"
+\text{such that}
+> "Also, \" can be escaped"
+\text{Also " can be escaped}
+> "Special \\ {characters} work too!"
+\text{Special \\ \{characters\} work too!}
+```
 
 Any text inside percent signs is treated as raw LaTeX and is left unchanged.
 `%\begin{cases}%` becomes `\begin{cases}` and not `\\begin{\cases}`
 
+```
+> %\begin{cases}% \begin{cases}
+\begin{cases} \\begin{\cases}
+```
+
 A number that immediately follows a letter becomes a subscript.
+
+```
+> a1, a2, a 3
+a_1, a_2, a 3
+```
 
 There are shortcuts for many commands:
 
@@ -91,13 +91,12 @@ There are shortcuts for many commands:
 ### Example
 
 ```text
-> "Let" \; RR^n = lc (a1, a2, ddd, a_n) | a_i in RR, i = 1, 2, ddd, n rc
-\text{Let} \; \mathbb R^n = \left\{ ({a_1}, {a_2}, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\}
->
+> "Let" \; RR^n = lc (a1, a2, ddd, a_n) mid a_i in RR, i = 1, 2, ddd, n rc
+\text{Let} \; {\mathbb R}^n = \left\{ (a_1, a_2, \ldots, a_n) \mid a_i \in \mathbb R, i = 1, 2, \ldots, n \right\}
 ```
 
 Rendered output:
 
 $$
-\text{Let} \\; \mathbb R^n = \left\\{ (a_1, a_2, \ldots, a_n) | a_i \in \mathbb R, i = 1, 2, \ldots, n \right\\}
+\text{Let} \\; \mathbb R^n = \left\\{ (a_1, a_2, \ldots, a_n) \mid a_i \in \mathbb R, i = 1, 2, \ldots, n \right\\}
 $$
