@@ -79,6 +79,8 @@ There are shortcuts for many commands:
 | `rc`     | `\right}`         | Right curly bracket         |
 | `lb`     | `\left\|`         | Left beam                   |
 | `rb`     | `\right\|`        | Right beam                  |
+| `la`     | `\left\langle`    | Left angle bracket          |
+| `ra`     | `\right\langle`   | Right angle bracket         |
 | `al`     | `\alpha`          |                             |
 | `bt`     | `\beta`           |                             |
 | `gm`     | `\gamma`          |                             |

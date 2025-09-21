@@ -32,8 +32,10 @@ class Generator:
         "rs": "\\right]",  # right square bracket
         "lc": "\\left\\{",  # left curly bracket
         "rc": "\\right\\}",  # right curly bracket
-        "ob": "\\left|",  # open beam
-        "cb": "\\right|",  # close beam
+        "lb": "\\left|",  # left beam
+        "rb": "\\right|",  # right beam
+        "la": "\\left\\langle",  # left angle bracket
+        "ra": "\\right\\rangle",  # right angle bracket
         "al": "\\alpha",
         "bt": "\\beta",
         "gm": "\\gamma",
