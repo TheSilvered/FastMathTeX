@@ -5,6 +5,9 @@ except ImportError:
     import readline
 import re
 from enum import Enum, auto
+import sys
+import os
+import os.path
 
 from .lexer import Lexer
 from .generator import Generator
@@ -68,10 +71,22 @@ class FMTeX:
         self.running = False
         self.lines: dict[int, str] = {}
         self.subs = CMD_SUBSTITUTIONS.copy()
+        if sys.platform == "win32":
+            self.file_location = os.path.join(os.environ["LOCALAPPDATA"], "_fmtexrc")
+        else:
+            self.file_location = os.path.join(os.environ["HOME"], ".fmtexrc")
 
     def welcome(self):
         print("Welcome to FastMathTeX!")
         print(f"Type \"'exit\" to exit the program and \"'help\" for more commands.")
+
+    def load_init_file(self):
+        try:
+            with open(self.file_location, encoding="utf8") as init:
+                for line in init.read().replace("\r", "").split("\n"):
+                    self.exe_cmd(line)
+        except FileNotFoundError:
+            pass
 
     def input_hook(self):
         def hook():
@@ -126,7 +141,10 @@ class FMTeX:
             pyperclip.copy("$$\\begin{align}\n " + text + " \n\\end{align}$$")
 
     def exe_cmd(self, cmd: str):
-        cmd, *args = cmd.strip().removeprefix("'").split()
+        try:
+            cmd, *args = cmd.strip().removeprefix("'").split()
+        except ValueError:
+            return
         cmd = cmd.lower()
         if hasattr(self, f"cmd_{cmd}"):
             msg = getattr(self, f"cmd_{cmd}")(args)
@@ -174,6 +192,8 @@ class FMTeX:
             return
         elif not args[0].isalpha():
             return f"invalid substitution name, only letters are allowed"
+        elif len(args[0]) == 1:
+            return f"invalid substitution name, it must be at least two letters long"
 
         if len(args) == 1:
             if args[0] in self.subs:
@@ -203,6 +223,7 @@ class FMTeX:
 
 def main():
     prog = FMTeX()
+    prog.load_init_file()
     prog.run()
 
 

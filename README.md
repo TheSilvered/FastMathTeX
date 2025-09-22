@@ -91,6 +91,21 @@ There are shortcuts for many commands:
 | `ett`    | `&&`              |                             |
 | `el`     | `\\`              | End line                    |
 
+### Custom shortcuts
+
+You can add your own shortcuts with the `'sub` command.
+
+```text
+> 'sub Rmn \mathbb R^{m \cdot n}
+added Rmn -> \mathbb R^{m \cdot n}
+> Rmn
+\mathbb R^{m \cdot n}
+```
+
+You can also add a file that executes commands on startup. On Windows it is
+located at `%LOCALAPPDATA%/_fmtexrc` and on Unix-based systems at
+`$HOME/.fmtexrc`.
+
 ### Example
 
 ```text
