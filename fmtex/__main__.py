@@ -50,7 +50,10 @@ CMD_SUBSTITUTIONS: dict[str, str] = {
     "DL": "\\Delta",
     "JJ": "{",
     "LL": "}",
-    "impl": "\\implies"
+    "impl": "\\implies",
+    "et": "&",
+    "ett": "&&",
+    "el": "\\\\"
 }
 
 

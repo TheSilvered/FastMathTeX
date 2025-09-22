@@ -87,6 +87,9 @@ There are shortcuts for many commands:
 | `dl`     | `\delta`          |                             |
 | `DL`     | `\Delta`          |                             |
 | `impl`   | `\implies`        |                             |
+| `et`     | `&`               | Latin 'and'                 |
+| `ett`    | `&&`              |                             |
+| `el`     | `\\`              | End line                    |
 
 ### Example
 
