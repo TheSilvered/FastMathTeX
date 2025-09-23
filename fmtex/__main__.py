@@ -19,7 +19,6 @@ CMD_SUBSTITUTIONS: dict[str, str] = {
     "II": "{\\mathbb I}",
     "RR": "{\\mathbb R}",
     "CC": "{\\mathbb C}",
-    "ddd": "\\ldots",  # dot dot dot
     "balign": "\\begin{align}",
     "ealign": "\\end{align}",
     "bcases": "\\begin{cases}",
@@ -51,12 +50,11 @@ CMD_SUBSTITUTIONS: dict[str, str] = {
     "gm": "\\gamma",
     "dl": "\\delta",
     "DL": "\\Delta",
-    "JJ": "{",
-    "LL": "}",
     "impl": "\\implies",
     "et": "&",
     "ett": "&&",
-    "el": "\\\\"
+    "el": "\\\\",
+    "perc": "\\%"
 }
 
 

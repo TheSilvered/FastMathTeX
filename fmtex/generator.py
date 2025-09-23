@@ -35,7 +35,10 @@ class Generator:
             elif self.tok.kind == TokenKind.LINE:
                 s += "\n"
             elif self.tok.kind == TokenKind.NUM:
-                s += self.tok.val
+                if len(self.tok.val) == 1:
+                    s += self.tok.val
+                else:
+                    s += "{" + self.tok.val + "}"
             else:
                 raise RuntimeError(f"unhandled token kind {self.tok.kind.name}")
             self.next()

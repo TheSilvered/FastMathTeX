@@ -50,13 +50,12 @@ There are shortcuts for many commands:
 
 | FastMath | TeX               | Mnemonic                    |
 | -------- | ----------------- | --------------------------- |
-| `NN`     | `\mathbb N`       |                             |
-| `ZZ`     | `\mathbb Z`       |                             |
-| `QQ`     | `\mathbb Q`       |                             |
-| `II`     | `\mathbb I`       |                             |
-| `RR`     | `\mathbb R`       |                             |
-| `CC`     | `\mathbb C`       |                             |
-| `ddd`    | `\ldots`          | Dot, dot, dot               |
+| `NN`     | `{\mathbb N}`     |                             |
+| `ZZ`     | `{\mathbb Z}`     |                             |
+| `QQ`     | `{\mathbb Q}`     |                             |
+| `II`     | `{\mathbb I}`     |                             |
+| `RR`     | `{\mathbb R}`     |                             |
+| `CC`     | `{\mathbb C}`     |                             |
 | `balign` | `\begin{align}`   |                             |
 | `ealign` | `\end{align}`     |                             |
 | `bcases` | `\begin{cases}`   |                             |
@@ -90,6 +89,7 @@ There are shortcuts for many commands:
 | `et`     | `&`               | Latin 'and'                 |
 | `ett`    | `&&`              |                             |
 | `el`     | `\\`              | End line                    |
+| `perc`   | `\%`              | Percentage                  |
 
 ### Custom shortcuts
 
