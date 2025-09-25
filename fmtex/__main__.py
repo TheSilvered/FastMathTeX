@@ -1,12 +1,15 @@
 import pyperclip
+import os
 try:
-    import gnureadline as readline
+    if os.name == 'nt':
+        import pyreadline3 as readline
+    else:
+        import gnureadline as readline
 except ImportError:
     import readline
 import re
 from enum import Enum, auto
 import sys
-import os
 import os.path
 
 from .lexer import Lexer
