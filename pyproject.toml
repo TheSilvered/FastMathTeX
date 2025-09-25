@@ -10,7 +10,7 @@ readme = "README.md"
 license = { file = "LICENSE" }
 dependencies = [
     "pyperclip",
-    "gnureadline"
+    "gnureadline; os_name != 'nt'"
 ]
 
 [project.scripts]
