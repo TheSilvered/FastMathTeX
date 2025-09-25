@@ -2,7 +2,7 @@ import pyperclip
 import os
 try:
     if os.name == 'nt':
-        import pyreadline3 as readline
+        import readline
     else:
         import gnureadline as readline
 except ImportError:
@@ -106,7 +106,6 @@ class FMTeX:
             line = self.get_input_line()
             if line[1].startswith("'"):
                 self.exe_cmd(line[1])
-                readline.remove_history_item(readline.get_current_history_length() - 1)
                 continue
             self.lines[line[0]] = line[1]
             if self.mode == self.Mode.MULTILINE and len(line[1]) != 0:
