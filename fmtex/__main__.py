@@ -1,7 +1,8 @@
 import pyperclip
 import os
+import os.path
 try:
-    if os.name == 'nt':
+    if os.name == "nt":
         import readline
     else:
         import gnureadline as readline
@@ -10,7 +11,6 @@ except ImportError:
 import re
 from enum import Enum, auto
 import sys
-import os.path
 
 from .lexer import Lexer
 from .generator import Generator
@@ -72,7 +72,15 @@ class FMTeX:
         self.running = False
         self.lines: dict[int, str] = {}
         self.subs = CMD_SUBSTITUTIONS.copy()
-        if sys.platform == "win32":
+        self.prefix = {
+            self.Mode.INLINE: "$",
+            self.Mode.MULTILINE: "$$\\begin{align}"
+        }
+        self.suffix = {
+            self.Mode.INLINE: "$",
+            self.Mode.MULTILINE: "\\end{align}$$"
+        }
+        if os.name == "nt":
             self.file_location = os.path.join(os.environ["LOCALAPPDATA"], "_fmtexrc")
         else:
             self.file_location = os.path.join(os.environ["HOME"], ".fmtexrc")
@@ -80,6 +88,14 @@ class FMTeX:
     def welcome(self):
         print("Welcome to FastMathTeX!")
         print(f"Type \"'exit\" to exit the program and \"'help\" for more commands.")
+
+    def log_info(self, s: str):
+        if self.running:
+            print(s)
+
+    @staticmethod
+    def log_error(s: str):
+        print(s)
 
     def load_init_file(self):
         try:
@@ -107,18 +123,23 @@ class FMTeX:
             if line[1].startswith("'"):
                 self.exe_cmd(line[1])
                 continue
+            line_changed = line[0] in self.lines
             self.lines[line[0]] = line[1]
-            if self.mode == self.Mode.MULTILINE and len(line[1]) != 0:
+            if self.mode == self.Mode.MULTILINE and (len(line[1]) != 0 or line_changed):
                 continue
             lexer = Lexer("\n".join(ln[1] for ln in self.line_list()))
             generator = Generator(lexer.tokenize(), self.subs)
             output = generator.generate()
-            print(output)
+            self.log_info(output)
             self.copy_to_clipboard(output)
             self.lines = {}
 
     def next_line_idx(self):
-        return (len(self.lines) + 1) * 10
+        if self.lines:
+            next_idx = max(self.lines) + 12
+        else:
+            next_idx = 10
+        return next_idx - (next_idx % 10)
 
     def get_input_line(self) -> tuple[int, str]:
         prompt = "> " if self.mode == self.Mode.INLINE else "| "
@@ -135,10 +156,9 @@ class FMTeX:
         return list(sorted(self.lines.items(), key=lambda x: x[0]))
 
     def copy_to_clipboard(self, text: str):
-        if self.mode == self.Mode.INLINE:
-            pyperclip.copy("$" + text + "$")
-        elif self.mode == self.Mode.MULTILINE:
-            pyperclip.copy("$$\\begin{align}\n " + text + " \n\\end{align}$$")
+        prefix = self.prefix.get(self.mode, "")
+        suffix = self.suffix.get(self.mode, "")
+        pyperclip.copy(prefix + text + suffix)
 
     def exe_cmd(self, cmd: str):
         try:
@@ -149,18 +169,18 @@ class FMTeX:
         if hasattr(self, f"cmd_{cmd}"):
             msg = getattr(self, f"cmd_{cmd}")(args)
         else:
-            print(f"unknown command '{cmd}")
+            self.log_error(f"unknown command '{cmd}")
             msg = None
 
         if msg is not None:
-            print(f"{cmd}: {msg}")
+            self.log_error(f"{cmd}: {msg}")
 
     def cmd_exit(self, _):
         self.running = False
 
     def cmd_mode(self, args: list[str]) -> str | None:
         if len(args) == 0:
-            print(self.mode.name.lower())
+            self.log_info(self.mode.name.lower())
             return None
         if len(args) > 1:
             return "invalid arguments"
@@ -179,16 +199,16 @@ class FMTeX:
 
         lines = self.line_list()
         if len(lines) == 0:
-            print("no lines in buffer")
+            self.log_info("no lines in buffer")
         for ln in self.line_list():
-            print(f"    {ln[0]}  {ln[1]}")
+            self.log_info(f"    {ln[0]}  {ln[1]}")
 
     def cmd_sub(self, args: list[str]) -> str | None:
         if len(args) == 0:
             subs = list(self.subs.items())
             kw_width = max(len(x[0]) for x in subs)
             for kw, sub in subs:
-                print(f"    {kw:{kw_width}s} -> {sub}")
+                self.log_info(f"    {kw:{kw_width}s} -> {sub}")
             return
         elif not args[0].isalpha():
             return f"invalid substitution name, only letters are allowed"
@@ -198,27 +218,46 @@ class FMTeX:
         if len(args) == 1:
             if args[0] in self.subs:
                 del self.subs[args[0]]
-                print(f"removed '{args[0]}'")
+                self.log_info(f"removed '{args[0]}'")
             else:
-                print(f"substitution {args[0]} not found")
+                self.log_info(f"substitution {args[0]} not found")
         else:
             value = " ".join(args[1:])
             self.subs[args[0]] = value
-            print(f"added {args[0]} -> {value}")
+            self.log_info(f"added {args[0]} -> {value}")
 
     def cmd_clear(self, _):
-        print("\x1b[2J\x1b[3J\x1b[H", end="")
+        if self.running:
+            print("\x1b[2J\x1b[3J\x1b[H", end="")
+
+    def cmd_prefix(self, args: list[str]) -> str | None:
+        if len(args) == 0:
+            self.log_info(self.prefix.get(self.mode, "no prefix set for current mode"))
+            return
+
+        if len(args) > 1:
+            return "invalid arguments"
+        self.prefix[self.mode] = args[0]
+
+    def cmd_suffix(self, args: list[str]) -> str | None:
+        if len(args) == 0:
+            self.log_info(self.suffix.get(self.mode, "no suffix set for current mode"))
+            return
+
+        if len(args) > 1:
+            return "invalid arguments"
+        self.suffix[self.mode] = args[0]
 
     def cmd_help(self, _):
-        print("Commands:")
-        print("'help              display this message")
-        print("'exit              exit the program")
-        print("'mode [mode]       change the mode (inline or multiline)")
-        print("                   if not specified print the current mode")
-        print("'list              list the current lines or the current")
-        print("'sub [name] [val]  add a substitution rule, omit val to delete")
-        print("                   omit name and val to list all substitutions")
-        print("'clear             clear the screen")
+        self.log_info("Commands:")
+        self.log_info("'help              display this message")
+        self.log_info("'exit              exit the program")
+        self.log_info("'mode [mode]       change the mode (inline or multiline) if not specified print the current mode")
+        self.log_info("'list              list the current lines or the current")
+        self.log_info("'sub [name] [val]  add a substitution rule, omit val to delete omit name and val to list all substitutions")
+        self.log_info("'prefix [prefix]   set the prefix to prepend when copying to the clipboard, if not specified print the current one")
+        self.log_info("'suffix [suffix]   set the suffix to append when copying to the clipboard, if not specified print the current one")
+        self.log_info("'clear             clear the screen")
 
 
 def main():

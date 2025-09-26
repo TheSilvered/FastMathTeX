@@ -109,12 +109,12 @@ located at `%LOCALAPPDATA%/_fmtexrc` and on Unix-based systems at
 ### Example
 
 ```text
-> "Let" \; RR^n = lc (a1, a2, ddd, a_n) mid a_i in RR, i = 1, 2, ddd, n rc
-\text{Let} \; {\mathbb R}^n = \left\{ (a_1, a_2, \ldots, a_n) \mid a_i \in \mathbb R, i = 1, 2, \ldots, n \right\}
+> "Let" \; RR^n = lc (a1, a2, ldots, a_n) mid a_i in RR, 1 le i le n rc
+\text{Let} \; {\mathbb R}^n = \left\{ (a_1, a_2, \ldots, a_n) \mid a_i \in \mathbb R, 1 \le i \le n \right\}
 ```
 
 Rendered output:
 
 $$
-\text{Let} \\; \mathbb R^n = \left\\{ (a_1, a_2, \ldots, a_n) \mid a_i \in \mathbb R, i = 1, 2, \ldots, n \right\\}
+\text{Let} \\; \mathbb R^n = \left\\{ (a_1, a_2, \ldots, a_n) \mid a_i \in \mathbb R, 1 \le i \le n \right\\}
 $$
