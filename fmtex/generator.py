@@ -66,13 +66,15 @@ class Generator:
         assert(len(self.tok.val) > 0)
 
         if len(self.tok.val) > 1:
-            return self.substitutions.get(self.tok.val, "\\" + self.tok.val)
+            s = self.substitutions.get(self.tok.val, "\\" + self.tok.val)
+        else:
+            s = self.tok.val
 
-        s = self.tok.val
         self.next()
         if self.tok is not None and self.tok.kind == TokenKind.NUM:
-            s = s + "_" + self.generate_num()
+            s += "_" + self.generate_num()
         else:
             self.prev()
 
         return s
+
