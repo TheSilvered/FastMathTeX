@@ -2,6 +2,14 @@
 
 A quicker way to input math equations with LaTeX syntax.
 
+## Installing
+
+You can install it via PyPI:
+
+```sh
+python3 -m pip install --upgrade fmtex
+```
+
 ## How to use
 
 You are given a prompt where you can input a custom syntax, after you are done

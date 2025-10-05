@@ -35,10 +35,7 @@ class Generator:
             elif self.tok.kind == TokenKind.LINE:
                 s += "\n"
             elif self.tok.kind == TokenKind.NUM:
-                if len(self.tok.val) == 1:
-                    s += self.tok.val
-                else:
-                    s += "{" + self.tok.val + "}"
+                s += self.generate_num()
             else:
                 raise RuntimeError(f"unhandled token kind {self.tok.kind.name}")
             self.next()
@@ -56,6 +53,14 @@ class Generator:
         )
         return f"\\text{{{val}}}"
 
+    def generate_num(self) -> str:
+        assert(self.tok is not None and self.tok.kind == TokenKind.NUM)
+
+        if len(self.tok.val) == 1:
+            return self.tok.val
+        else:
+            return "{" + self.tok.val + "}"
+
     def generate_alpha(self) -> str:
         assert(self.tok is not None and self.tok.kind == TokenKind.ALPHA)
         assert(len(self.tok.val) > 0)
@@ -66,7 +71,7 @@ class Generator:
         s = self.tok.val
         self.next()
         if self.tok is not None and self.tok.kind == TokenKind.NUM:
-            s = s + "_" + self.tok.val
+            s = s + "_" + self.generate_num()
         else:
             self.prev()
 

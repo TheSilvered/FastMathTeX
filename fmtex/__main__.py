@@ -10,7 +10,6 @@ except ImportError:
     import readline
 import re
 from enum import Enum, auto
-import sys
 
 from .lexer import Lexer
 from .generator import Generator
