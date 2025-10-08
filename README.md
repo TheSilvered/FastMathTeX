@@ -56,14 +56,21 @@ a_1, a_2, a 3
 
 There are shortcuts for many commands:
 
+**Numeric sets:**
+
+| FastMath | TeX               |
+| -------- | ----------------- |
+| `NN`     | `{\mathbb N}`     |
+| `ZZ`     | `{\mathbb Z}`     |
+| `QQ`     | `{\mathbb Q}`     |
+| `II`     | `{\mathbb I}`     |
+| `RR`     | `{\mathbb R}`     |
+| `CC`     | `{\mathbb C}`     |
+
+**Blocks:**
+
 | FastMath | TeX               | Mnemonic                    |
 | -------- | ----------------- | --------------------------- |
-| `NN`     | `{\mathbb N}`     |                             |
-| `ZZ`     | `{\mathbb Z}`     |                             |
-| `QQ`     | `{\mathbb Q}`     |                             |
-| `II`     | `{\mathbb I}`     |                             |
-| `RR`     | `{\mathbb R}`     |                             |
-| `CC`     | `{\mathbb C}`     |                             |
 | `balign` | `\begin{align}`   |                             |
 | `ealign` | `\end{align}`     |                             |
 | `bcases` | `\begin{cases}`   |                             |
@@ -78,6 +85,11 @@ There are shortcuts for many commands:
 | `ebmat`  | `\end{vmatrix}`   | End beam matrix             |
 | `bdmat`  | `\begin{Vmatrix}` | Begin double beam matrix    |
 | `edmat`  | `\end{Vmatrix}`   | End double beam matrix      |
+
+**Brackets:**
+
+| FastMath | TeX               | Mnemonic                    |
+| -------- | ----------------- | --------------------------- |
 | `lp`     | `\left(`          | Left paren                  |
 | `rp`     | `\right)`         | Right paren                 |
 | `ls`     | `\left[`          | Left square bracket         |
@@ -88,12 +100,45 @@ There are shortcuts for many commands:
 | `rb`     | `\right\|`        | Right beam                  |
 | `la`     | `\left\langle`    | Left angle bracket          |
 | `ra`     | `\right\langle`   | Right angle bracket         |
-| `al`     | `\alpha`          |                             |
-| `bt`     | `\beta`           |                             |
-| `gm`     | `\gamma`          |                             |
-| `dl`     | `\delta`          |                             |
-| `DL`     | `\Delta`          |                             |
+
+**Greek letters:**
+
+| FastMath | TeX               |
+| -------- | ----------------- |
+| `al`     | `\alpha`          |
+| `bt`     | `\beta`           |
+| `gm`     | `\gamma`          |
+| `GM`     | `\Gamma`          |
+| `dl`     | `\delta`          |
+| `DL`     | `\Delta`          |
+| `ep`     | `\varepsilon`     |
+| `vep`    | `\epsilon`        |
+| `lm`     | `\lambda`         |
+| `LM`     | `\Lambda`         |
+| `om`     | `\omega`          |
+| `OM`     | `\Omega`          |
+| `ph`     | `\phi`            |
+| `vph`    | `\varphi`         |
+| `PH`     | `\Phi`            |
+| `vpi`    | `\varpi`          |
+| `PI`     | `\Pi`             |
+| `sg`     | `\sigma`          |
+| `vsg`    | `\varsigma`       |
+| `SG`     | `\Sigma`          |
+| `th`     | `\theta`          |
+| `vth`    | `\vartheta`       |
+| `ups`    | `\upsilon`        |
+| `UPS`    | `\Upsilon`        |
+| `TH`     | `\Theta`          |
+| `zt`     | `\zeta`           |
+
+**Other symbols:**
+
+| FastMath | TeX               | Mnemonic                    |
+| -------- | ----------------- | --------------------------- |
 | `impl`   | `\implies`        |                             |
+| `and`    | `\wedge`          | Logical 'and'               |
+| `or`     | `\vee`            | Logical 'or'                |
 | `et`     | `&`               | Latin 'and'                 |
 | `ett`    | `&&`              |                             |
 | `el`     | `\\`              | End line                    |

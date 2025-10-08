@@ -15,12 +15,17 @@ from .lexer import Lexer
 from .generator import Generator
 
 CMD_SUBSTITUTIONS: dict[str, str] = {
+    # Sets #
+
     "NN": "{\\mathbb N}",
     "ZZ": "{\\mathbb Z}",
     "QQ": "{\\mathbb Q}",
     "II": "{\\mathbb I}",
     "RR": "{\\mathbb R}",
     "CC": "{\\mathbb C}",
+
+    # Blocks #
+
     "balign": "\\begin{align}",
     "ealign": "\\end{align}",
     "bcases": "\\begin{cases}",
@@ -37,6 +42,9 @@ CMD_SUBSTITUTIONS: dict[str, str] = {
     "ebmat": "\\end{vmatrix}",  # end beam matrix
     "bdmat": "\\begin{Vmatrix}",  # begin double beam matrix
     "edmat": "\\end{Vmatrix}",  # end double beam matrix
+
+    # Brackets #
+
     "lp": "\\left(",  # left paren
     "rp": "\\right)",  # right paren
     "ls": "\\left[",  # left square bracket
@@ -47,12 +55,41 @@ CMD_SUBSTITUTIONS: dict[str, str] = {
     "rb": "\\right|",  # right beam
     "la": "\\left\\langle",  # left angle bracket
     "ra": "\\right\\rangle",  # right angle bracket
+
+    # Greek letters #
+
     "al": "\\alpha",
     "bt": "\\beta",
     "gm": "\\gamma",
+    "GM": "\\Gamma",
     "dl": "\\delta",
     "DL": "\\Delta",
+    "ep": "\\varepsilon",
+    "vep": "\\epsilon",
+    "lm": "\\lambda",
+    "LM": "\\Lambda",
+    "om": "\\omega",
+    "OM": "\\Omega",
+    "ph": "\\phi",
+    "vph": "\\varphi",
+    "PH": "\\Phi",
+    "vpi": "\\varpi",
+    "PI": "\\Pi",
+    "sg": "\\sigma",
+    "vsg": "\\varsigma",
+    "SG": "\\Sigma",
+    "th": "\\theta",
+    "vth": "\\vartheta",
+    "ups": "\\upsilon",
+    "UPS": "\\Upsilon",
+    "TH": "\\Theta",
+    "zt": "\\zeta",
+
+    # Other #
+
     "impl": "\\implies",
+    "and": "\\wedge",
+    "or": "\\vee",
     "et": "&",
     "ett": "&&",
     "el": "\\\\",
